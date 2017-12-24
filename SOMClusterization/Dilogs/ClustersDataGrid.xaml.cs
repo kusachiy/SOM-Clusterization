@@ -10,25 +10,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MahApps.Metro.Controls;
+using SOMClusterization.Dilogs;
 
-namespace SOMClusterization
+namespace SOMClusterization.Dialogs
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для DataGrid.xaml
     /// </summary>
-    public partial class MainWindow : MetroWindow
+    public partial class ClustersDataGrid
     {
-        public MainWindow()
+        public ClustersDataGrid(ClustersDataGridManager dataGridManager)
         {
             InitializeComponent();
-        }
-
-        private void DataGrid_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            ((MainManager)DataContext).MouseDoubleClick();
+            DataContext = dataGridManager;
+            dataGridManager.Exit = Close;
         }
     }
 }
